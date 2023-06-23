@@ -9,10 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newPassword = $_POST['new_password'];
     $confirmPassword = $_POST['confirm_password'];
 
-    // TODO: Validate and sanitize the input data
-    // ...
-
-    // Retrieve user ID from the session
     $user_id = $_SESSION['user_id'];
 
     // Retrieve user's current password from the database
