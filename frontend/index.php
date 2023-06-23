@@ -30,7 +30,7 @@ $stmt->close();
     <div class="container mt-5">
         <div class="card mb-4">
         <div class="card-header">
-        User Information
+        User Informations
       </div>
       <div class="card-body">
         <p><strong>Name:</strong> <?php echo $userDetails['firstname'] . ' ' . $userDetails['lastname']; ?></p>
