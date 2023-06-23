@@ -44,6 +44,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
+// Fetch all posts from the database
+$sql = "SELECT tweets.id AS post_id, tweets.content, tweets.created_at, users.firstname, users.lastname 
+        FROM tweets 
+        INNER JOIN users ON tweets.user_id = users.id 
+        ORDER BY tweets.created_at DESC";
+$result = $conn->query($sql);
+
+// Check if there are posts
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $post_id = $row['post_id'];
+    $firstname = $row['firstname'];
+    $lastname = $row['lastname'];
+    $content = $row['content'];
+    $timestamp = $row['created_at'];
+
+    // Display the post details
+    echo '<div class="card mb-3">';
+    echo '<div class="card-body">';
+    echo '<h5 class="card-title">Post ID: ' . $post_id . '</h5>';
+    echo '<h6 class="card-subtitle mb-2 text-muted">User: ' . $firstname . ' ' . $lastname . '</h6>';
+    echo '<p class="card-text">' . $content . '</p>';
+    echo '<p class="card-text"><small class="text-muted">Posted on: ' . $timestamp . '</small></p>';
+    echo '</div>';
+    echo '</div>';
+  }
+} else {
+  // Handle the case when there are no posts
+  echo 'No posts found.';
+}
+
 // Close the database connection
 $conn->close();
 ?>
