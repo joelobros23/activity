@@ -72,6 +72,7 @@ $stmt->close();
       $content = $row['content'];
       $timestamp = $row['created_at'];
   ?>
+  
       <div class="card mb-3">
         <div class="card-body">
           <h3 class="card-subtitle mb-2"><?php echo $firstname . ' ' . $lastname; ?></h3>
