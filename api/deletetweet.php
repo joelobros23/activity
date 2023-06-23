@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
         echo "Error: " . $stmt->error;
     }
 
-    // Close statement
     $stmt->close();
 } else {
     // Redirect back to the index page if post ID is not provided
