@@ -72,7 +72,7 @@ $stmt->close();
       $content = $row['content'];
       $timestamp = $row['created_at'];
   ?>
-  
+
       <div class="card mb-3">
         <div class="card-body">
           <h3 class="card-subtitle mb-2"><?php echo $firstname . ' ' . $lastname; ?></h3>
@@ -89,18 +89,6 @@ $stmt->close();
   ?>
 </div>
 
-
-<div class="card mt-3">
-  <div class="card-body">
-    <h5 class="card-title">Compose New Post</h5>
-    <form action="../api/createtweet.php" method="POST">
-      <div class="form-group">
-        <textarea class="form-control" name="content" rows="3" placeholder="Write your post here"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Post</button>
-    </form>
-  </div>
-</div>
 
   </div>
 </div>
