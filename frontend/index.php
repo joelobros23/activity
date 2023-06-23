@@ -70,7 +70,7 @@ $stmt->close();
 </div>
 
   <?php
-  // Retrieve posts from the database
+
   $sql = "SELECT tweets.id AS post_id, tweets.content, tweets.created_at, users.firstname, users.lastname 
           FROM tweets 
           INNER JOIN users ON tweets.user_id = users.id 
