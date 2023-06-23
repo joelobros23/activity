@@ -4,7 +4,7 @@ require_once '../api/config.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
-    // Get the post ID from the form
+
     $post_id = $_POST['post_id'];
 
     // Prepare and execute the DELETE statement
