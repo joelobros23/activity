@@ -22,26 +22,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if (password_verify($currentPassword, $hashedPassword)) {
-        // Generate a new hashed password
+
         $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-        // Update the user's password in the database
+
         $sql = "UPDATE users SET password = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("si", $newHashedPassword, $user_id);
 
         if ($stmt->execute()) {
-            // Password updated successfully
+
             echo "Password updated successfully.";
         } else {
-            // Error occurred while updating the password
+
             echo "Error: " . $stmt->error;
         }
 
-        // Close statement
+
         $stmt->close();
     } else {
-        // Current password is incorrect
+  
         echo "Incorrect current password.";
     }
 }
