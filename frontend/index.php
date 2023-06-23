@@ -24,11 +24,11 @@
           </div>
           <div class="form-group">
 
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
           </div>
           <div class="form-group">
 
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
           </div>
           <div class="form-group">
             <label for="birthdate">Birthdate</label>
