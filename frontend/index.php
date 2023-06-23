@@ -55,42 +55,54 @@ $stmt->close();
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        Social Media Posts
-      </div>
-      <div class="card-body">
-        <?php
-
-        $socialMediaPosts = array(
-          array(
-            'post_id' => 1,
-            'user_id' => 1,
-            'content' => 'Hello, everyone! This is my first post.',
-            'timestamp' => '2023-06-23 10:00:00'
-          ),
-          array(
-            'post_id' => 2,
-            'user_id' => 1,
-            'content' => 'Feeling great today!',
-            'timestamp' => '2023-06-24 15:30:00'
-          )
-        );
-        ?>
-
-        <?php foreach ($socialMediaPosts as $post): ?>
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Post ID: <?php echo $post['post_id']; ?></h5>
-              <h6 class="card-subtitle mb-2 text-muted">User ID: <?php echo $post['user_id']; ?></h6>
-              <p class="card-text"><?php echo $post['content']; ?></p>
-              <p class="card-text"><small class="text-muted">Posted on: <?php echo $post['timestamp']; ?></small></p>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      </div>
-    </div>
+<div class="card">
+  <div class="card-header">
+    Tweety Post
   </div>
+  <div class="card-body">
+    <?php
+    // Retrieve posts from the database
+    $sql = "SELECT * FROM tweets";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        $post_id = $row['id'];
+        $user_id = $row['user_id'];
+        $content = $row['content'];
+        $timestamp = $row['created_at'];
+    ?>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Post ID: <?php echo $post_id; ?></h5>
+            <h6 class="card-subtitle mb-2 text-muted">User ID: <?php echo $user_id; ?></h6>
+            <p class="card-text"><?php echo $content; ?></p>
+            <p class="card-text"><small class="text-muted">Posted on: <?php echo $timestamp; ?></small></p>
+          </div>
+        </div>
+    <?php
+      }
+    } else {
+      echo "No posts found.";
+    }
+    ?>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body">
+    <h5 class="card-title">Compose New Post</h5>
+    <form action="../api/createtweet.php" method="POST">
+      <div class="form-group">
+        <textarea class="form-control" name="content" rows="3" placeholder="Write your post here"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </div>
+</div>
+
+  </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
