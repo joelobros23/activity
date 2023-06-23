@@ -16,18 +16,18 @@
         <form action="register_process.php" method="POST">
         <div class="form-group row">
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name" required>
+              <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
             </div>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name" required>
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
           </div>
           <div class="form-group">
