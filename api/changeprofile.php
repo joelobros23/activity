@@ -1,8 +1,8 @@
 <?php
-// Include the config.php file
+
 require_once 'config.php';
 
-// Start the session
+
 session_start();
 
 // Initialize variables with user data
