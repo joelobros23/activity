@@ -1,5 +1,5 @@
 <?php
-// Include the config.php file
+
 require_once '../api/config.php';
 
 // Check if the post ID is submitted
