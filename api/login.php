@@ -43,17 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
             if (password_verify($password, $hashed_password)) {
-                // Password is correct, start a new session
+
                 session_start();
 
-                // Store data in session variables
+
                 $_SESSION['user_id'] = $user_id;
 
-                // Redirect to the home page
-                header("Location: ../frontend/index.php"); // Modify the path here
+
+                header("Location: ../frontend/index.php");
                 exit();
             } else {
-                // Password is incorrect
+
                 $password_err = 'Invalid password.';
             }
 
