@@ -15,11 +15,9 @@
       <div class="card-body">
         <form action="register_process.php" method="POST">
         <div class="form-group row">
-            <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-4">
               <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name" required>
             </div>
-            <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-4">
               <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name" required>
             </div>
