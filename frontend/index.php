@@ -57,17 +57,19 @@ $stmt->close();
 
     <div class="card-body">
 
-    <div class="card mt-3">
+    <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title">Compose New Post</h5>
-    <form action="../api/createtweet.php" method="POST">
-      <div class="form-group">
-        <textarea class="form-control" name="content" rows="3" placeholder="Write your post here"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Post</button>
+    <h5 class="card-title">Post ID: <?php echo $post_id; ?></h5>
+    <h6 class="card-subtitle mb-2 text-muted">User: <?php echo $firstname . ' ' . $lastname; ?></h6>
+    <p class="card-text"><?php echo $content; ?></p>
+    <p class="card-text"><small class="text-muted">Posted on: <?php echo $timestamp; ?></small></p>
+    <form action="delete_post.php" method="POST" class="delete-form">
+      <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+      <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete</button>
     </form>
   </div>
 </div>
+
 
   <?php
   // Retrieve posts from the database
