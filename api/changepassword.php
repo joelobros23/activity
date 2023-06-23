@@ -1,11 +1,9 @@
 <?php
-// Include the config.php file
+
 require_once 'config.php';
 
-// Initialize variables with user data
 $currentPassword = $newPassword = $confirmPassword = '';
 
-// Process form data when the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $currentPassword = $_POST['current_password'];
     $newPassword = $_POST['new_password'];
