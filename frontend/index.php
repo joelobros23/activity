@@ -55,39 +55,39 @@ $stmt->close();
       </div>
     </div>
 
-<div class="card">
-  <div class="card-header">
-    Tweety Post
-  </div>
-  <div class="card-body">
-    <?php
-    // Retrieve posts from the database
-    $sql = "SELECT * FROM tweets";
-    $result = $conn->query($sql);
+    <div class="card-body">
+  <?php
+  // Retrieve posts from the database
+  $sql = "SELECT tweets.id AS post_id, tweets.content, tweets.created_at, users.firstname, users.lastname 
+          FROM tweets 
+          INNER JOIN users ON tweets.user_id = users.id 
+          ORDER BY tweets.created_at DESC";
+  $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        $post_id = $row['id'];
-        $user_id = $row['user_id'];
-        $content = $row['content'];
-        $timestamp = $row['created_at'];
-    ?>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Post ID: <?php echo $post_id; ?></h5>
-            <h6 class="card-subtitle mb-2 text-muted">User ID: <?php echo $user_id; ?></h6>
-            <p class="card-text"><?php echo $content; ?></p>
-            <p class="card-text"><small class="text-muted">Posted on: <?php echo $timestamp; ?></small></p>
-          </div>
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $post_id = $row['post_id'];
+      $firstname = $row['firstname'];
+      $lastname = $row['lastname'];
+      $content = $row['content'];
+      $timestamp = $row['created_at'];
+  ?>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3 class="card-subtitle mb-2"><?php echo $firstname . ' ' . $lastname; ?></h3>
+          <h6 class="card-title  text-muted">Post ID: <?php echo $post_id; ?></h6>
+          <p class="card-text"><?php echo $content; ?></p>
+          <p class="card-text"><small class="text-muted">Posted on: <?php echo $timestamp; ?></small></p>
         </div>
-    <?php
-      }
-    } else {
-      echo "No posts found.";
+      </div>
+  <?php
     }
-    ?>
-  </div>
+  } else {
+    echo "No posts found.";
+  }
+  ?>
 </div>
+
 
 <div class="card mt-3">
   <div class="card-body">
