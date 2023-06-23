@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
 
     $post_id = $_POST['post_id'];
 
-    // Prepare and execute the DELETE statement
     $sql = "DELETE FROM tweets WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $post_id);
