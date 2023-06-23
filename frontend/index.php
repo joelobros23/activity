@@ -86,9 +86,9 @@ $stmt->close();
       $timestamp = $row['created_at'];
   ?>
 
-<div class="card mb-3">
+<div class="card mb-3"></div>
   <div class="card-body">
-
+    <h5 class="card-title">Post ID: <?php echo $post_id; ?></h5>
     <h6 class="card-subtitle mb-2 text-muted">User: <?php echo $firstname . ' ' . $lastname; ?></h6>
     <p class="card-text"><?php echo $content; ?></p>
     <p class="card-text"><small class="text-muted">Posted on: <?php echo $timestamp; ?></small></p>
