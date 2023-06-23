@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Include the config.php file
-require_once 'api/config.php';
+require_once '../api/config.php';
 
 // Retrieve user information from the database based on the user ID in the session
 $userID = $_SESSION['user_id'];
