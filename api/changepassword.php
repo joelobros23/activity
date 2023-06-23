@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $user_id = $_SESSION['user_id'];
 
-    // Retrieve user's current password from the database
+
     $sql = "SELECT password FROM users WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $user_id);
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->fetch();
     $stmt->close();
 
-    // Verify if the current password matches the one in the database
+
     if (password_verify($currentPassword, $hashedPassword)) {
         // Generate a new hashed password
         $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
