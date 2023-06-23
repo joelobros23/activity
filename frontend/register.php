@@ -6,21 +6,21 @@ require_once '../api/config.php';
 $firstname = $lastname = $email = $password = $birthdate = '';
 $firstname_err = $lastname_err = $email_err = $password_err = $birthdate_err = '';
 
-// Process form data when the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validate and sanitize the input data
+
     $firstname = trim($_POST['firstname']);
     $lastname = trim($_POST['lastname']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $birthdate = $_POST['birthdate'];
 
-    // Validate firstname
+
     if (empty($firstname)) {
         $firstname_err = 'Please enter your firstname.';
     }
 
-    // Validate lastname
+
     if (empty($lastname)) {
         $lastname_err = 'Please enter your lastname.';
     }
