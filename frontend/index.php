@@ -5,10 +5,9 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Include the config.php file
 require_once '../api/config.php';
 
-// Retrieve user information from the database based on the user ID in the session
+
 $userID = $_SESSION['user_id'];
 $sql = "SELECT * FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -46,8 +45,7 @@ $stmt->close();
       </div>
       <div class="card-body">
         <?php
-        // Retrieve social media posts from the database
-        // Replace this with your own code to fetch posts from the database
+
         $socialMediaPosts = array(
           array(
             'post_id' => 1,
