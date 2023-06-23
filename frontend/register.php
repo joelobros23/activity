@@ -25,28 +25,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $lastname_err = 'Please enter your lastname.';
     }
 
-    // Validate email
+
     if (empty($email)) {
         $email_err = 'Please enter your email.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_err = 'Please enter a valid email address.';
     }
 
-    // Validate password
+
     if (empty($password)) {
         $password_err = 'Please enter a password.';
     } elseif (strlen($password) < 6) {
         $password_err = 'Password must be at least 6 characters long.';
     }
 
-    // Validate birthdate
+
     if (empty($birthdate)) {
         $birthdate_err = 'Please enter your birthdate.';
     }
 
-    // Check if there are no errors, then attempt to register
+
     if (empty($firstname_err) && empty($lastname_err) && empty($email_err) && empty($password_err) && empty($birthdate_err)) {
-        // Check if the email is already registered
+
         $sql = "SELECT id FROM users WHERE email = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $email);
@@ -56,29 +56,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt->num_rows > 0) {
             $email_err = 'Email is already registered.';
         } else {
-            // Hash the password
+
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-            // Insert user data into the database
+
             $sql = "INSERT INTO users (firstname, lastname, email, birthdate, password) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssss", $firstname, $lastname, $email, $birthdate, $hashed_password);
 
             if ($stmt->execute()) {
-                // Registration successful, redirect to index.php
+
                 header("Location: index.php");
                 exit();
             } else {
-                // Registration failed, display an error message
+  
                 echo "Error: " . $stmt->error;
             }
         }
     }
 
-    // Close statement
+
     $stmt->close();
 
-    // Close the database connection
+
     $conn->close();
 }
 ?>
