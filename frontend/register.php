@@ -1,8 +1,8 @@
 <?php
-// Include the config.php file
+
 require_once '../api/config.php';
 
-// Define variables and initialize with empty values
+
 $firstname = $lastname = $email = $password = $birthdate = '';
 $firstname_err = $lastname_err = $email_err = $password_err = $birthdate_err = '';
 
