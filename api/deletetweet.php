@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
 
     $stmt->close();
 } else {
-    // Redirect back to the index page if post ID is not provided
+
     header("Location: ../frontend/index.php");
     exit();
 }
