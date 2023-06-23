@@ -19,7 +19,23 @@
             <div class="col-sm-4">
               <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name" required>
             </div>
-
+            <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Birthdate</label>
+            <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+          </div>
           <button type="submit" class="btn btn-primary">Register</button>
         </form>
       </div>
