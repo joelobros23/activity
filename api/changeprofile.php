@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssi", $name, $lastname, $email, $user_id);
 
     if ($stmt->execute()) {
-        // Profile information updated successfully
+
         echo "Profile information updated.";
     } else {
         // Error occurred while updating profile information
