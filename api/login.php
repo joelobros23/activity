@@ -58,17 +58,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
         } else {
-            // No user found with the provided email
+
             $email_err = 'No account found with that email.';
         }
 
         $stmt->close();
     } else {
-        // Output database errors
+
         die('Error: ' . $conn->error);
     }
     
-    // Close the database connection
+
     $conn->close();
 }
 ?>
