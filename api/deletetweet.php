@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
     $stmt->bind_param("i", $post_id);
 
     if ($stmt->execute()) {
-        // Post deleted successfully, redirect back to the index page
+
         header("Location: ../frontend/index.php");
         exit();
     } else {
