@@ -1,11 +1,8 @@
 <?php
-// Start the session (assuming you have a login/authentication mechanism in place)
 session_start();
-
-// Check if the user is logged in, otherwise redirect to the login page
 if (!isset($_SESSION['user_id'])) {
-  header("Location: login.php");
-  exit();
+    header("Location: ../api/login.php");
+    exit();
 }
 
 // Include the config.php file
@@ -82,3 +79,5 @@ $stmt->close();
   </div>
 </body>
 </html>
+
+?>
