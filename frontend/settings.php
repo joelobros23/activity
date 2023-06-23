@@ -1,8 +1,8 @@
 <?php
-// Include the update_profile.php file
+
 require_once '../api/changeprofile.php';
 
-// Include the changepassword.php file
+
 require_once '../api/changepassword.php';
 ?>
 
