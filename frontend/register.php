@@ -22,13 +22,13 @@
             $stmt->bind_param("sssss", $firstname, $lastname, $email, $birthdate, $password);
 
             if ($stmt->execute()) {
-                // Registration successful, redirect to a success page
-                header("Location: success.php");
+                // Registration successful, redirect to index.php
+                header("Location: index.php");
                 exit();
             } else {
                 // Registration failed, display an error message
                 echo "Error: " . $stmt->error;
-            }
+            }            
 
             // Close statement
             $stmt->close();
