@@ -1,23 +1,23 @@
 <?php
-// Include the config.php file and establish the database connection
+
 require_once 'config.php';
 
-// Start the session
+
 session_start();
 
-// Check if the user is already logged in, then redirect to the home page
+
 if (isset($_SESSION['user_id'])) {
-    header("Location: ../frontend/index.php"); // Modify the path here
+    header("Location: ../frontend/index.php");
     exit();
 }
 
-// Define variables and initialize with empty values
+
 $email = $password = '';
 $email_err = $password_err = '';
 
-// Process form data when the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the form data
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
