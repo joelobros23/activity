@@ -56,6 +56,19 @@ $stmt->close();
     </div>
 
     <div class="card-body">
+
+    <div class="card mt-3">
+  <div class="card-body">
+    <h5 class="card-title">Compose New Post</h5>
+    <form action="../api/createtweet.php" method="POST">
+      <div class="form-group">
+        <textarea class="form-control" name="content" rows="3" placeholder="Write your post here"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </div>
+</div>
+
   <?php
   // Retrieve posts from the database
   $sql = "SELECT tweets.id AS post_id, tweets.content, tweets.created_at, users.firstname, users.lastname 
