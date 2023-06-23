@@ -5,10 +5,10 @@ require_once 'config.php';
 
 session_start();
 
-// Initialize variables with user data
+
 $name = $lastname = $email = '';
 
-// Process form data when the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
