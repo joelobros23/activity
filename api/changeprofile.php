@@ -14,10 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
 
-    // TODO: Validate and sanitize the input data
-    // ...
-
-    // Retrieve user ID from the session
     $user_id = $_SESSION['user_id'];
 
     // Update user data in the database
