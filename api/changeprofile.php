@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         echo "Profile information updated.";
     } else {
-        // Error occurred while updating profile information
+
         echo "Error: " . $stmt->error;
     }
 
