@@ -1,3 +1,26 @@
+<?php
+// Start the session (assuming you have a login/authentication mechanism in place)
+session_start();
+
+// Check if the user is logged in, otherwise redirect to the login page
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}
+
+// Include the config.php file
+require_once 'api/config.php';
+
+// Retrieve user information from the database based on the user ID in the session
+$userID = $_SESSION['user_id'];
+$sql = "SELECT * FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $userID);
+$stmt->execute();
+$result = $stmt->get_result();
+$userDetails = $result->fetch_assoc();
+$stmt->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +31,13 @@
 </head>
 <body>
 <div class="container mt-5">
-    <div class="card mb-4">
-      <div class="card-header">
+    <div class="container mt-5">
+        <div class="card mb-4">
+        <div class="card-header">
         User Information
       </div>
       <div class="card-body">
-        <?php
-        // Retrieve user information from the database
-        // Replace this with your own code to fetch user details from the database
-        $userDetails = array(
-          'name' => 'John Doe',
-          'username' => 'johndoe123',
-          'email' => 'johndoe@example.com',
-          'birthdate' => '1990-01-01'
-        );
-        ?>
-
-        <p><strong>Name:</strong> <?php echo $userDetails['name']; ?></p>
-        <p><strong>Username:</strong> <?php echo $userDetails['username']; ?></p>
+        <p><strong>Name:</strong> <?php echo $userDetails['firstname'] . ' ' . $userDetails['lastname']; ?></p>
         <p><strong>Email:</strong> <?php echo $userDetails['email']; ?></p>
         <p><strong>Birthdate:</strong> <?php echo $userDetails['birthdate']; ?></p>
       </div>
