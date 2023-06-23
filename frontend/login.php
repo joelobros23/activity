@@ -9,7 +9,7 @@ if (isset($_SESSION['user_id'])) {
 }
 
 // Include the config.php file
-require_once 'api/config.php';
+require_once '../api/config.php';
 
 // Define variables and initialize with empty values
 $email = $password = '';
