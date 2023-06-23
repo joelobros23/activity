@@ -42,14 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $row['id'];
             $hashed_password = $row['password'];
 
+
             // Verify the password
             if (password_verify($password, $hashed_password)) {
                 // Password is correct, start a new session
                 session_start();
-
+            
                 // Store data in session variables
                 $_SESSION['user_id'] = $user_id;
-
+            
                 // Redirect to the home page
                 header("Location: index.php");
                 exit();
@@ -57,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Password is incorrect
                 $password_err = 'Invalid password.';
             }
+
         } else {
             // No user found with the provided email
             $email_err = 'No account found with that email.';
