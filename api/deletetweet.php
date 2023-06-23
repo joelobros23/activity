@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post_id'])) {
         header("Location: ../frontend/index.php");
         exit();
     } else {
-        // Error occurred while deleting the post
+
         echo "Error: " . $stmt->error;
     }
 
