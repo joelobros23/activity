@@ -59,7 +59,7 @@ $stmt->close();
 
     <div class="card mt-3">
   <div class="card-body">
-
+  <h5 class="card-title">Compose New Post</h5>
     <form action="../api/createtweet.php" method="POST">
       <div class="form-group">
         <textarea class="form-control" name="content" rows="3" placeholder="Write your post here"></textarea>
