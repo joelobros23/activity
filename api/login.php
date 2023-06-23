@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validate email and password
+
     if (empty($email)) {
         $email_err = 'Please enter your email.';
     }
@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password_err = 'Please enter your password.';
     }
 
-    // Check if there are no errors, then attempt to login
     if (empty($email_err) && empty($password_err)) {
         $sql = "SELECT id, email, password FROM users WHERE email = ?";
         $stmt = $conn->prepare($sql);
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $row['id'];
             $hashed_password = $row['password'];
 
-            // Verify the password
+    
             if (password_verify($password, $hashed_password)) {
                 // Password is correct, start a new session
                 session_start();
